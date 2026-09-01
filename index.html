@@ -15,48 +15,118 @@
 </head>
 <body class="deck-mode">
 
-  <!-- Top Navigation & Progress Bar -->
-  <header class="top-nav">
-    <div class="nav-container">
-      <div class="nav-brand" onclick="goToSlide(0)" title="Go to Overview">
-        <span class="brand-title">Full-Stack Development</span>
-        <span class="brand-sub">Syllabus & Roadmap</span>
+  <div class="app-layout">
+    <!-- Left Sidebar Navigation -->
+    <aside class="app-sidebar" id="app-sidebar" aria-label="Main Navigation">
+      
+      <!-- Sidebar Header / Brand -->
+      <div class="sidebar-header">
+        <div class="nav-brand" onclick="goToSlide(0)" title="Go to Overview">
+          <div class="brand-badge">FS</div>
+          <div class="brand-text">
+            <span class="brand-title">Full-Stack Web Development</span>
+            <span class="brand-sub">Syllabus & Roadmap</span>
+          </div>
+        </div>
+        <button class="sidebar-close-btn" id="sidebar-close-btn" aria-label="Close Sidebar">✕</button>
       </div>
 
-      <div class="nav-progress-group">
-        <span class="progress-text" id="progress-summary">0 of 16 modules completed (0%)</span>
-        <div class="progress-bar-track">
-          <div class="progress-bar-fill" id="hud-progress-fill"></div>
+      <!-- Navigation List -->
+      <nav class="sidebar-nav-container" aria-label="Slide Navigation">
+        <div class="nav-section-header">
+          <span class="nav-section-title">COURSE MODULES</span>
+          <span class="nav-slide-count">11 Slides</span>
+        </div>
+        
+        <div class="tabs-container" id="phase-nav-links">
+          <button class="tab-btn active" onclick="goToSlide(0)">
+            <span class="tab-index">00</span>
+            <span class="tab-label">Overview</span>
+          </button>
+          <button class="tab-btn" onclick="goToSlide(1)">
+            <span class="tab-index">01</span>
+            <span class="tab-label">Tooling & Workflow</span>
+          </button>
+          <button class="tab-btn" onclick="goToSlide(2)">
+            <span class="tab-index">02</span>
+            <span class="tab-label">JavaScript Core</span>
+          </button>
+          <button class="tab-btn" onclick="goToSlide(3)">
+            <span class="tab-index">03</span>
+            <span class="tab-label">CSS & Git Workflows</span>
+          </button>
+          <button class="tab-btn" onclick="goToSlide(4)">
+            <span class="tab-index">04</span>
+            <span class="tab-label">PHP Backend</span>
+          </button>
+          <button class="tab-btn" onclick="goToSlide(5)">
+            <span class="tab-index">05</span>
+            <span class="tab-label">Relational Databases</span>
+          </button>
+          <button class="tab-btn" onclick="goToSlide(6)">
+            <span class="tab-index">06</span>
+            <span class="tab-label">Capstone I: MVC App</span>
+          </button>
+          <button class="tab-btn" onclick="goToSlide(7)">
+            <span class="tab-index">07</span>
+            <span class="tab-label">REST APIs & Security</span>
+          </button>
+          <button class="tab-btn" onclick="goToSlide(8)">
+            <span class="tab-index">08</span>
+            <span class="tab-label">Modern React</span>
+          </button>
+          <button class="tab-btn" onclick="goToSlide(9)">
+            <span class="tab-index">09</span>
+            <span class="tab-label">Capstone II: Full Stack</span>
+          </button>
+          <button class="tab-btn" onclick="goToSlide(10)">
+            <span class="tab-index">10</span>
+            <span class="tab-label">Course Outcomes</span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Sidebar Footer (Progress & Quick Actions) -->
+      <div class="sidebar-footer">
+        <div class="nav-progress-group">
+          <div class="progress-info-row">
+            <span class="progress-label">Checklist Progress</span>
+            <span class="progress-text" id="progress-summary">0 of 16 completed (0%)</span>
+          </div>
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="hud-progress-fill"></div>
+          </div>
+        </div>
+
+        <div class="sidebar-actions">
+          <button id="toggle-all-btn" class="btn-text" title="Expand or Collapse all modules">Expand All</button>
+          <span class="nav-divider"></span>
+          <button id="reset-progress-btn" class="btn-text btn-muted" title="Reset checklist">Reset</button>
         </div>
       </div>
+    </aside>
 
-      <div class="nav-actions">
-        <button id="toggle-all-btn" class="btn-text" title="Expand or Collapse all modules">Expand All</button>
-        <span class="nav-divider"></span>
-        <button id="reset-progress-btn" class="btn-text btn-muted" title="Reset checklist">Reset</button>
-      </div>
-    </div>
-  </header>
+    <!-- Mobile Overlay Backdrop -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
-  <!-- Slide Tabs Navigation -->
-  <nav class="phase-tabs-bar" aria-label="Slide Navigation">
-    <div class="tabs-container" id="phase-nav-links">
-      <button class="tab-btn active" onclick="goToSlide(0)">Overview</button>
-      <button class="tab-btn" onclick="goToSlide(1)">1. Tooling</button>
-      <button class="tab-btn" onclick="goToSlide(2)">2. JavaScript</button>
-      <button class="tab-btn" onclick="goToSlide(3)">3. CSS & Git</button>
-      <button class="tab-btn" onclick="goToSlide(4)">4. PHP Backend</button>
-      <button class="tab-btn" onclick="goToSlide(5)">5. Databases</button>
-      <button class="tab-btn" onclick="goToSlide(6)">6. Capstone I</button>
-      <button class="tab-btn" onclick="goToSlide(7)">7. APIs & Security</button>
-      <button class="tab-btn" onclick="goToSlide(8)">8. React</button>
-      <button class="tab-btn" onclick="goToSlide(9)">9. Capstone II</button>
-      <button class="tab-btn" onclick="goToSlide(10)">Outcome</button>
-    </div>
-  </nav>
+    <!-- Main Content Stage -->
+    <div class="main-content-wrapper">
+      
+      <!-- Mobile Top Bar (Only visible on small screens) -->
+      <header class="mobile-top-bar">
+        <button class="mobile-toggle-btn" id="sidebar-toggle-btn" aria-label="Open Sidebar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <div class="mobile-brand-title">Full-Stack Mentorship</div>
+        <div class="mobile-slide-counter" id="mobile-slide-counter">01 / 11</div>
+      </header>
 
-  <!-- Main Slide Container -->
-  <main class="slides-viewport" id="slides-container">
+      <!-- Main Slide Container -->
+      <main class="slides-viewport" id="slides-container">
     
     <!-- ================= SLIDE 0: OVERVIEW ================= -->
     <section class="slide-pane active" id="slide-0" data-slide-index="0">
@@ -956,23 +1026,25 @@
 
   </main>
 
-  <!-- Bottom Slide Deck Controller -->
-  <footer class="bottom-controller">
-    <div class="controller-container">
-      <button id="prev-slide-btn" class="ctrl-btn" onclick="prevSlide()" title="Previous Slide (Left Arrow)">
-        ← Previous
-      </button>
+    <!-- Bottom Slide Deck Controller -->
+    <footer class="bottom-controller">
+      <div class="controller-container">
+        <button id="prev-slide-btn" class="ctrl-btn" onclick="prevSlide()" title="Previous Slide (Left Arrow)">
+          ← Previous
+        </button>
 
-      <div class="controller-center">
-        <div class="dot-indicators" id="deck-dots-container"></div>
-        <span class="slide-counter" id="deck-counter-text">01 / 11</span>
+        <div class="controller-center">
+          <div class="dot-indicators" id="deck-dots-container"></div>
+          <span class="slide-counter" id="deck-counter-text">01 / 11</span>
+        </div>
+
+        <button id="next-slide-btn" class="ctrl-btn ctrl-btn-primary" onclick="nextSlide()" title="Next Slide (Right Arrow or Space)">
+          Next →
+        </button>
       </div>
-
-      <button id="next-slide-btn" class="ctrl-btn ctrl-btn-primary" onclick="nextSlide()" title="Next Slide (Right Arrow or Space)">
-        Next →
-      </button>
-    </div>
-  </footer>
+    </footer>
+    </div> <!-- /.main-content-wrapper -->
+  </div> <!-- /.app-layout -->
 
   <script src="script.js"></script>
 </body>

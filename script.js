@@ -5,6 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initDeckNavigation();
+  initSidebar();
   initProgressTracker();
   initKeyboardNav();
   initTouchGestures();
@@ -43,10 +44,42 @@ function initDeckNavigation() {
   showSlide(0);
 }
 
+/**
+ * Responsive Sidebar Drawer Controls
+ */
+function initSidebar() {
+  const sidebar = document.getElementById('app-sidebar');
+  const toggleBtn = document.getElementById('sidebar-toggle-btn');
+  const closeBtn = document.getElementById('sidebar-close-btn');
+  const overlay = document.getElementById('sidebar-overlay');
+
+  function openSidebar() {
+    if (sidebar) sidebar.classList.add('sidebar-open');
+    if (overlay) overlay.classList.add('active');
+  }
+
+  function closeSidebar() {
+    if (sidebar) sidebar.classList.remove('sidebar-open');
+    if (overlay) overlay.classList.remove('active');
+  }
+
+  if (toggleBtn) toggleBtn.addEventListener('click', openSidebar);
+  if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+  if (overlay) overlay.addEventListener('click', closeSidebar);
+}
+
+function closeMobileSidebar() {
+  const sidebar = document.getElementById('app-sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
+  if (sidebar) sidebar.classList.remove('sidebar-open');
+  if (overlay) overlay.classList.remove('active');
+}
+
 window.goToSlide = function(index) {
   if (index < 0 || index >= totalSlides) return;
   currentSlideIndex = index;
   showSlide(currentSlideIndex);
+  closeMobileSidebar();
 };
 
 window.nextSlide = function() {
@@ -82,12 +115,15 @@ function showSlide(index) {
   if (nextBtn) nextBtn.disabled = (index === totalSlides - 1);
 
   // Counter
+  const paddedCurrent = String(index + 1).padStart(2, '0');
+  const paddedTotal = String(totalSlides).padStart(2, '0');
+  const counterText = `${paddedCurrent} / ${paddedTotal}`;
+
   const counter = document.getElementById('deck-counter-text');
-  if (counter) {
-    const paddedCurrent = String(index + 1).padStart(2, '0');
-    const paddedTotal = String(totalSlides).padStart(2, '0');
-    counter.textContent = `${paddedCurrent} / ${paddedTotal}`;
-  }
+  if (counter) counter.textContent = counterText;
+
+  const mobileCounter = document.getElementById('mobile-slide-counter');
+  if (mobileCounter) mobileCounter.textContent = counterText;
 
   // Dots
   const dots = document.querySelectorAll('.deck-dot');
@@ -102,7 +138,7 @@ function showSlide(index) {
   });
 
   if (tabButtons[index]) {
-    tabButtons[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    tabButtons[index].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 }
 
