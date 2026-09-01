@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full-Stack Web Development Mentorship Syllabus</title>
+  <meta name="description" content="A structured 9-month roadmap for mastering full-stack web development from HTML/CSS to PHP, MySQL, and React.">
+  
+  <!-- Clean Editorial Typography: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="deck-mode">
+
+  <!-- Top Navigation & Progress Bar -->
+  <header class="top-nav">
+    <div class="nav-container">
+      <div class="nav-brand" onclick="goToSlide(0)" title="Go to Overview">
+        <span class="brand-title">Full-Stack Development</span>
+        <span class="brand-sub">Syllabus & Roadmap</span>
+      </div>
+
+      <div class="nav-progress-group">
+        <span class="progress-text" id="progress-summary">0 of 16 modules completed (0%)</span>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="hud-progress-fill"></div>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <button id="toggle-all-btn" class="btn-text" title="Expand or Collapse all modules">Expand All</button>
+        <span class="nav-divider"></span>
+        <button id="reset-progress-btn" class="btn-text btn-muted" title="Reset checklist">Reset</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Slide Tabs Navigation -->
+  <nav class="phase-tabs-bar" aria-label="Slide Navigation">
+    <div class="tabs-container" id="phase-nav-links">
+      <button class="tab-btn active" onclick="goToSlide(0)">Overview</button>
+      <button class="tab-btn" onclick="goToSlide(1)">1. Tooling</button>
+      <button class="tab-btn" onclick="goToSlide(2)">2. JavaScript</button>
+      <button class="tab-btn" onclick="goToSlide(3)">3. CSS & Git</button>
+      <button class="tab-btn" onclick="goToSlide(4)">4. PHP Backend</button>
+      <button class="tab-btn" onclick="goToSlide(5)">5. Databases</button>
+      <button class="tab-btn" onclick="goToSlide(6)">6. Capstone I</button>
+      <button class="tab-btn" onclick="goToSlide(7)">7. APIs & Security</button>
+      <button class="tab-btn" onclick="goToSlide(8)">8. React</button>
+      <button class="tab-btn" onclick="goToSlide(9)">9. Capstone II</button>
+      <button class="tab-btn" onclick="goToSlide(10)">Outcome</button>
+    </div>
+  </nav>
+
+  <!-- Main Slide Container -->
+  <main class="slides-viewport" id="slides-container">
+    
+    <!-- ================= SLIDE 0: OVERVIEW ================= -->
+    <section class="slide-pane active" id="slide-0" data-slide-index="0">
+      <div class="slide-scroll">
+        <div class="slide-content">
+          
+          <div class="slide-header">
+            <span class="section-kicker">Course Introduction</span>
+            <h1 class="slide-title">Full-Stack Web Development</h1>
+            <p class="slide-lead">
+              A comprehensive ~37-week mentorship program taking you from solid HTML/CSS fundamentals to designing, securing, and deploying complete full-stack web applications.
+            </p>
+          </div>
+
+          <!-- Quick Metrics -->
+          <div class="metrics-row">
+            <div class="metric-item">
+              <span class="metric-label">Duration</span>
+              <span class="metric-value">~37 Weeks</span>
+              <span class="metric-sub">≈ 9 months</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Schedule</span>
+              <span class="metric-value">3 Classes / Wk</span>
+              <span class="metric-sub">1.5 hrs per class (111 classes)</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Structure</span>
+              <span class="metric-value">9 Phases</span>
+              <span class="metric-sub">16 Modules total</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Output</span>
+              <span class="metric-value">2 Capstones</span>
+              <span class="metric-sub">5 Milestone Checkpoints</span>
+            </div>
+          </div>
+
+          <!-- Teaching Principles -->
+          <div class="principles-box">
+            <h2 class="principles-title">Program Methodology</h2>
+            <div class="principles-grid">
+              <div class="principle-item">
+                <strong>70% Hands-On Building</strong>
+                <p>10 minutes of conceptual foundation followed by 70 minutes of direct typing, experimentation, and problem solving.</p>
+              </div>
+              <div class="principle-item">
+                <strong>Self-Directed Debugging</strong>
+                <p>Learn to read error logs, inspect network traffic, and diagnose bugs independently—the cornerstone of professional engineering.</p>
+              </div>
+              <div class="principle-item">
+                <strong>Production Workflows</strong>
+                <p>Build with industry tools: Git version control, command line, PDO prepared statements, and live cloud deployment.</p>
+              </div>
+              <div class="principle-item">
+                <strong>Milestone Driven</strong>
+                <p>Track tangible progress after each module with working applications and live code repositories.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-cta">
+            <button class="btn-action" onclick="nextSlide()">View Phase 1: Foundations & Tooling →</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 1: PHASE 1 ================= -->
+    <section class="slide-pane" id="slide-1" data-slide-index="1">
+      <div class="slide-scroll">
+        <div class="slide-content">
+          
+          <div class="slide-header">
+            <span class="section-kicker">Phase 01 • 1 Week</span>
+            <h2 class="slide-title">Foundations & Tooling</h2>
+            <p class="slide-lead">Set up a professional development environment and publish your first repository to GitHub.</p>
+          </div>
+
+          <div class="modules-container">
+            <!-- Module 0 -->
+            <div class="module-block expanded" id="mod-card-0">
+              <div class="module-row" onclick="toggleModule(0)">
+                <div class="module-left">
+                  <label class="clean-checkbox" onclick="event.stopPropagation()">
+                    <input type="checkbox" id="check-mod-0" onchange="handleModuleToggle(0)">
+                    <span class="checkbox-box"></span>
+                  </label>
+                  <div>
+                    <div class="module-number">Module 0 • 1 week / 3 classes</div>
+                    <h3 class="module-name">Developer Environment & Workflow</h3>
+                  </div>
+                </div>
+                <div class="module-right">
+                  <span class="checkpoint-pill">Checkpoint 1</span>
+                  <span class="expand-icon"></span>
+                </div>
+              </div>
+
+              <div class="module-drawer">
+                <div class="drawer-content">
+                  <div class="topics-group">
+                    <h4 class="group-title">Syllabus Breakdown</h4>
+                    <ul class="clean-list">
+                      <li><strong>Class 1:</strong> Professional VS Code setup — extensions (Prettier, Live Server, ESLint), folder conventions, keyboard shortcuts.</li>
+                      <li><strong>Class 2:</strong> Command line basics — <code>cd</code>, <code>ls</code> / <code>dir</code>, <code>mkdir</code>, <code>touch</code>, running a local dev server.</li>
+                      <li><strong>Class 3:</strong> Git & GitHub — version control concepts, repository creation, <code>git init/add/commit/push</code>.</li>
+                    </ul>
+                  </div>
+
+                  <div class="checkpoint-callout">
+                    <span class="callout-tag">Milestone Checkpoint #1</span>
+                    <p class="callout-desc">Existing HTML & CSS website committed and pushed to your personal GitHub repository.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 2: PHASE 2 ================= -->
+    <section class="slide-pane" id="slide-2" data-slide-index="2">
+      <div class="slide-scroll">
+        <div class="slide-content">
+          
+          <div class="slide-header">
+            <span class="section-kicker">Phase 02 • 8 Weeks</span>
+            <h2 class="slide-title">JavaScript Mastery</h2>
+            <p class="slide-lead">Develop fluency with JavaScript syntax, DOM manipulation, and asynchronous programming.</p>
+          </div>
+
+          <div class="modules-container">
+            <!-- Module 1 -->
+            <div class="module-block expanded" id="mod-card-1">
+              <div class="module-row" onclick="toggleModule(1)">
+                <div class="module-left">
+                  <label class="clean-checkbox" onclick="event.stopPropagation()">
+                    <input type="checkbox" id="check-mod-1" onchange="handleModuleToggle(1)">
+                    <span class="checkbox-box"></span>
+                  </label>
+                  <div>
+                    <div class="module-number">Module 1 • 3 weeks / 9 classes</div>
+                    <h3 class="module-name">JavaScript Core Refresh</h3>
+                  </div>
+                </div>
+                <div class="module-right">
+                  <span class="expand-icon"></span>
+                </div>
+              </div>
+
+              <div class="module-drawer">
+                <div class="drawer-content">
+                  <div class="topics-group">
+                    <h4 class="group-title">Topics Covered</h4>
+                    <ul class="clean-list">
+                      <li>Variables (<code>let</code> / <code>const</code>), data types, type coercion</li>
+                      <li>Operators, conditionals (<code>if/else</code>, <code>switch</code>), ternary operator</li>
+                      <li>Loops (<code>for</code>, <code>while</code>, <code>for...of</code>, <code>for...in</code>)</li>
+                      <li>Functions — declarations, expressions, arrow functions, default parameters</li>
+                      <li>Arrays & array methods (<code>push</code>, <code>pop</code>, <code>slice</code>, <code>splice</code>, iteration)</li>
+                      <li>Objects — properties, methods, intro to <code>this</code></li>
+                    </ul>
+                  </div>
+                  <div class="project-callout">
+                    <span class="callout-tag">Mini-Project</span>
+                    <h4 class="callout-title">Number Guessing Game / Rock-Paper-Scissors</h4>
+                    <p class="callout-desc">Interactive logic game with score persistence and win/loss conditional evaluation.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Module 2 -->
+            <div class="module-block" id="mod-card-2">
+              <div class="module-row" onclick="toggleModule(2)">
+                <div class="module-left">
+                  <label class="clean-checkbox" onclick="event.stopPropagation()">
+                    <input type="checkbox" id="check-mod-2" onchange="handleModuleToggle(2)">
+                    <span class="checkbox-box"></span>
+                  </label>
+                  <div>
+                    <div class="module-number">Module 2 • 2 weeks / 6 classes</div>
+                    <h3 class="module-name">DOM & Events</h3>
+                  </div>
+                </div>
+                <div class="module-right">
+                  <span class="expand-icon"></span>
+                </div>
+              </div>
+
+              <div class="module-drawer">
+                <div class="drawer-content">
+                  <div class="topics-group">
+                    <h4 class="group-title">Topics Covered</h4>
+                    <ul class="clean-list">
+                      <li>Selecting elements (<code>querySelector</code>, <code>getElementById</code>)</li>
+                      <li>Manipulating DOM — text, attributes, class lists, creating and removing elements dynamically</li>
+                      <li>Event listeners (<code>click</code>, <code>submit</code>, <code>keypress</code>, <code>input</code>)</li>
+                      <li>Forms & client-side validation logic</li>
+                    </ul>
+                  </div>
+                  <div class="project-callout">
+                    <span class="callout-tag">Mini-Project</span>
+                    <h4 class="callout-title">To-Do List Application</h4>
+                    <p class="callout-desc">Full add/delete/complete functionality with local storage persistence across browser reloads.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Module 3 -->
+            <div class="module-block" id="mod-card-3">
+              <div class="module-row" onclick="toggleModule(3)">
+                <div class="module-left">
+                  <label class="clean-checkbox" onclick="event.stopPropagation()">
+                    <input type="checkbox" id="check-mod-3" onchange="handleModuleToggle(3)">
+                    <span class="checkbox-box"></span>
+                  </label>
+                  <div>
+                    <div class="module-number">Module 3 • 3 weeks / 9 classes</div>
+                    <h3 class="module-name">Advanced JavaScript & Asynchronous Programming</h3>
+                  </div>
+                </div>
+                <div class="module-right">
+                  <span class="expand-icon"></span>
+                </div>
+              </div>
+
+              <div class="module-drawer">
+                <div class="drawer-content">
+                  <div class="topics-group">
+                    <h4 class="group-title">Topics Covered</h4>
+                    <ul class="clean-list">
+                      <li>ES6+ features: destructuring, spread/rest operators, template literals, modules (<code>import</code>/<code>export</code>)</li>
+                      <li>Higher-order functions: <code>map</code>, <code>filter</code>, <code>reduce</code>, <code>forEach</code></li>
+                      <li>Closures, lexical scope, <code>this</code> keyword, <code>bind</code> / <code>call</code> / <code>apply</code></li>
+                      <li>Classes & OOP in JavaScript (constructors, inheritance, <code>extends</code>)</li>
+                      <li>Asynchronous JS: callbacks, Promises, <code>async</code> / <code>await</code></li>
+                      <li><code>fetch()</code> API — consuming REST APIs and parsing JSON</li>
+                      <li>Error handling with <code>try / catch</code></li>
+                    </ul>
+                  </div>
+                  <div class="project-callout">
+                    <span class="callout-tag">Mini-Project</span>
+                    <h4 class="callout-title">Live Weather or Quote Application</h4>
+                    <p class="callout-desc">Consuming a public REST API over HTTP to fetch dynamic live data asynchronously.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 3: PHASE 3 ================= -->
+    <section class="slide-pane" id="slide-3" data-slide-index="3">
+      <div class="slide-scroll">
+        <div class="slide-content">
+          
+          <div class="slide-header">
+            <span class="section-kicker">Phase 03 • 3 Weeks</span>
+            <h2 class="slide-title">Advanced Styling & Version Control</h2>
+            <p class="slide-lead">Master responsive layout systems, modular CSS architecture, and collaborative Git branching.</p>
+          </div>
+
+          <div class="modules-container">
+            <!-- Module 4 -->
+            <div class="module-block expanded" id="mod-card-4">
+              <div class="module-row" onclick="toggleModule(4)">
+                <div class="module-left">
+                  <label class="clean-checkbox" onclick="event.stopPropagation()">
+                    <input type="checkbox" id="check-mod-4" onchange="handleModuleToggle(4)">
+                    <span class="checkbox-box"></span>
+                  </label>
+                  <div>
+                    <div class="module-number">Module 4 • 2 weeks / 6 classes</div>
+                    <h3 class="module-name">Advanced CSS & Modern Layouts</h3>
+                  </div>
+                </div>
+                <div class="module-right">
+                  <span class="expand-icon"></span>
+                </div>
+              </div>
+
+              <div class="module-drawer">
+                <div class="drawer-content">
+                  <div class="topics-group">
+                    <h4 class="group-title">Topics Covered</h4>
+                    <ul class="clean-list">
+                      <li>Flexbox & CSS Grid for complex, real-world layout structures</li>
+                      <li>Responsive design, media queries, and mobile-first methodologies</li>
+                      <li>CSS custom properties (variables)</li>
+                      <li>Transitions and keyframe animations</li>
+                      <li>Introduction to Sass/SCSS (nesting, variables, mixins)</li>
+                      <li>BEM naming methodology for clean, maintainable stylesheets</li>
+                    </ul>
+                  </div>
+                  <div class="project-callout">
+                    <span class="callout-tag">Mini-Project</span>
+                    <h4 class="callout-title">Responsive Portfolio Landing Page</h4>
+                    <p class="callout-desc">Clean, fully responsive personal portfolio designed across mobile, tablet, and desktop viewports.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Module 5 -->
+            <div class="module-block expanded" id="mod-card-5">
+              <div class="module-row" onclick="toggleModule(5)">
+                <div class="module-left">
+                  <label class="clean-checkbox" onclick="event.stopPropagation()">
+                    <input type="checkbox" id="check-mod-5" onchange="handleModuleToggle(5)">
+                    <span class="checkbox-box"></span>
+                  </label>
+                  <div>
+                    <div class="module-number">Module 5 • 1 week / 3 classes</div>
+                    <h3 class="module-name">Git & GitHub — Collaboration Workflows</h3>
+                  </div>
+                </div>
+                <div class="module-right">
+                  <span class="checkpoint-pill">Checkpoint 2</span>
+                  <span class="expand-icon"></span>
+                </div>
+              </div>
+
+              <div class="module-drawer">
+                <div class="drawer-content">
+                  <div class="topics-group">
+                    <h4 class="group-title">Topics Covered</h4>
+                    <ul class="clean-list">
+                      <li>Branching, merging, and pull request workflows</li>
+                      <li>Resolving merge conflicts and code review practices</li>
+                      <li><code>.gitignore</code> configuration and README documentation standards</li>
+                      <li>Deploying static sites to production via GitHub Pages</li>
+                    </ul>
+                  </div>
+                  <div class="checkpoint-callout">
+                    <span class="callout-tag">Milestone Checkpoint #2</span>
+                    <p class="callout-desc">Personal portfolio website deployed live on the public internet via GitHub Pages.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 4: PHASE 4 ================= -->
+    <section class="slide-pane" id="slide-4" data-slide-index="4">
+      <div class="slide-scroll">
+        <div class="slide-content">
+          
+          <div class="slide-header">
+            <span class="section-kicker">Phase 04 • 6 Weeks</span>
+            <h2 class="slide-title">Backend Development with PHP</h2>
+            <p class="slide-lead">Understand server architecture, request/response cycles, and server-side logic execution.</p>
+          </div>
+
+          <div class="modules-container">
+            <!-- Module 6 -->
+            <div class="module-block expanded" id="mod-card-6">
+              <div class="module-row" onclick="toggleModule(6)">
+                <div class="module-left">
+                  <label class="clean-checkbox" onclick="event.stopPropagation()">
+                    <input type="checkbox" id="check-mod-6" onchange="handleModuleToggle(6)">
+                    <span class="checkbox-box"></span>
+                  </label>
+                  <div>
+                    <div class="module-number">Module 6 • 3 weeks / 9 classes</div>
+                    <h3 class="module-name">Backend Fundamentals & PHP Basics</h3>
+                  </div>
+                </div>
+                <div class="module-right">
+                  <span class="expand-icon"></span>
+                </div>
+              </div>
+
+              <div class="module-drawer">
+                <div class="drawer-content">
+                  <div class="topics-group">
+                    <h4 class="group-title">Topics Covered</h4>
+                    <ul class="clean-list">
+                      <li>Client-server architecture (HTTP request/response, front-end vs back-end separation)</li>
+                      <li>PHP syntax, variables, <code>echo</code>, data types, control structures, functions</li>
+                      <li>PHP indexed and associative arrays</li>
+                      <li>Handling HTTP form submissions with <code>$_GET</code> and <code>$_POST</code></li>
+                      <li>File inclusion and modular code organization (<code>include</code>, <code>require</code>)</li>
+                    </ul>
+                  </div>
+                  <div class="project-callout">
+                    <span class="callout-tag">Mini-Project</span>
+                    <h4 class="callout-title">Dynamic PHP Contact Form</h4>
+                    <p class="callout-desc">Form processor that validates input data server-side and displays personalized confirmation responses.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Module 7 -->
+            <div class="module-block" id="mod-card-7">
+              <div class="module-row" onclick="toggleModule(7)">
+                <div class="module-left">
+                  <label class="clean-checkbox" onclick="event.stopPropagation()">
+                    <input type="checkbox" id="check-mod-7" onchange="handleModuleToggle(7)">
+                    <span class="checkbox-box"></span>
+                  </label>
+                  <div>
+                    <div class="module-number">Module 7 • 3 weeks / 9 classes</div>
+                    <h3 class="module-name">PHP Intermediate & Object-Oriented Programming</h3>
+                  </div>
+                </div>
+                <div class="module-right">
+                  <span class="expand-icon"></span>
+                </div>
+              </div>
+
+              <div class="module-drawer">
+                <div class="drawer-content">
+                  <div class="topics-group">
+                    <h4 class="group-title">Topics Covered</h4>
+                    <ul class="clean-list">
+                      <li>HTTP state management: Sessions and cookies</li>
+                      <li>Object-Oriented PHP: classes, objects, constructors, properties, and methods</li>
+                      <li>Basic inheritance and interface structures</li>
+                      <li>Server-side input sanitization and validation</li>
+                      <li>Error handling and exception management in PHP</li>
+                    </ul>
+                  </div>
+                  <div class="project-callout">
+                    <span class="callout-tag">Mini-Project</span>
+                    <h4 class="callout-title">Session-Based Visitor Tracker</h4>
+                    <p class="callout-desc">Stateful web application managing user preferences and session authentication persistence.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 5: PHASE 5 ================= -->
+    <section class="slide-pane" id="slide-5" data-slide-index="5">
+      <div class="slide-scroll">
+        <div class="slide-content">
+          
+          <div class="slide-header">
+            <span class="section-kicker">Phase 05 • 6 Weeks</span>
+            <h2 class="slide-title">Databases & SQL Integration</h2>
+            <p class="slide-lead">Design relational schemas, execute SQL queries, and connect PHP to MySQL using secure PDO prepared statements.</p>
+          </div>
+
+          <div class="modules-container">
+            <!-- Module 8 -->
+            <div class="module-block expanded" id="mod-card-8">
+              <div class="module-row" onclick="toggleModule(8)">
+                <div class="module-left">
+                  <label class="clean-checkbox" onclick="event.stopPropagation()">
+                    <input type="checkbox" id="check-mod-8" onchange="handleModuleToggle(8)">
+                    <span class="checkbox-box"></span>
+                  </label>
+                  <div>
+                    <div class="module-number">Module 8 • 3 weeks / 9 classes</div>
+                    <h3 class="module-name">SQL & Relational Database Fundamentals</h3>
+                  </div>
+                </div>
+                <div class="module-right">
+                  <span class="expand-icon"></span>
+                </div>
+              </div>
+
+              <div class="module-drawer">
+                <div class="drawer-content">
+                  <div class="topics-group">
+                    <h4 class="group-title">Topics Covered</h4>
+                    <ul class="clean-list">
+                      <li>Relational database concepts: tables, records, columns, and keys</li>
+                      <li>Navigating phpMyAdmin and local database servers (XAMPP/MAMP)</li>
+                      <li>Core SQL: <code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code></li>
+                      <li>Filtering and sorting: <code>WHERE</code>, <code>ORDER BY</code>, <code>LIMIT</code></li>
+                      <li>Relational integrity: Primary keys, Foreign keys, and basic <code>JOIN</code> operations</li>
+                      <li>Schema design and relationship modeling on paper before implementation</li>
+                    </ul>
+                  </div>
+                  <div class="project-callout">
+                    <span class="callout-tag">Mini-Project</span>
+                    <h4 class="callout-title">Grade Tracker / Game Collection Schema</h4>
+                    <p class="callout-desc">Normalized relational database schema for a custom hobby, catalog, or academic tracker.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Module 9 -->
+            <div class="module-block expanded" id="mod-card-9">
+              <div class="module-row" onclick="toggleModule(9)">
+                <div class="module-left">
+                  <label class="clean-checkbox" onclick="event.stopPropagation()">
+                    <input type="checkbox" id="check-mod-9" onchange="handleModuleToggle(9)">
+                    <span class="checkbox-box"></span>
+                  </label>
+                  <div>
+                    <div class="module-number">Module 9 • 3 weeks / 9 classes</div>
+                    <h3 class="module-name">PHP + MySQL Integration & Authentication</h3>
+                  </div>
+                </div>
+                <div class="module-right">
+                  <span class="expand-icon"></span>
+                </div>
+              </div>
+
+              <div class="module-drawer">
+                <div class="drawer-content">
+                  <div class="topics-group">
+                    <h4 class="group-title">Topics Covered</h4>
+                    <ul class="clean-list">
+                      <li>Connecting PHP to MySQL via <strong>PDO</strong> (PHP Data Objects)</li>
+                      <li>Full CRUD implementation (Create, Read, Update, Delete) from web interfaces</li>
+                      <li><strong>Prepared statements</strong> for SQL injection prevention</li>
+                      <li>Secure user authentication with password hashing (<code>password_hash</code>, <code>password_verify</code>)</li>
+                    </ul>
+                  </div>
+                  <div class="project-callout">
+                    <span class="callout-tag">Mini-Project</span>
+                    <h4 class="callout-title">Secure Auth System & Dynamic Blog</h4>
+                    <p class="callout-desc">Authentication system with hashed passwords and dynamic database-backed article publishing.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 6: PHASE 6 (CAPSTONE I) ================= -->
+    <section class="slide-pane" id="slide-6" data-slide-index="6">
+      <div class="slide-scroll">
+        <div class="slide-content">
+          
+          <div class="slide-header">
+            <span class="section-kicker">Phase 06 • 2 Weeks • Mid-Program Milestone</span>
+            <h2 class="slide-title">Capstone Project I: Dynamic Web App</h2>
+            <p class="slide-lead">Independently plan, architect, build, and deploy a complete end-to-end full-stack web application.</p>
+          </div>
+
+          <div class="modules-container">
+            <!-- Module 10 -->
+            <div class="module-block expanded" id="mod-card-10">
+              <div class="module-row" onclick="toggleModule(10)">
+                <div class="module-left">
+                  <label class="clean-checkbox" onclick="event.stopPropagation()">
+                    <input type="checkbox" id="check-mod-10" onchange="handleModuleToggle(10)">
+                    <span class="checkbox-box"></span>
+                  </label>
+                  <div>
+                    <div class="module-number">Module 10 • 2 weeks / 6 classes</div>
+                    <h3 class="module-name">Full-Stack Dynamic Web Application</h3>
+                  </div>
+                </div>
+                <div class="module-right">
+                  <span class="checkpoint-pill highlight-pill">Checkpoint 3 / Portfolio #1</span>
+                  <span class="expand-icon"></span>
+                </div>
+              </div>
+
+              <div class="module-drawer">
+                <div class="drawer-content">
+                  <div class="topics-group">
+                    <h4 class="group-title">Project Specifications</h4>
+                    <ul class="clean-list">
+                      <li><strong>Front-End:</strong> Clean, responsive HTML5, CSS Grid/Flexbox, and interactive JavaScript UI.</li>
+                      <li><strong>Back-End:</strong> Modular PHP architecture handling routing, validation, and session logic.</li>
+                      <li><strong>Database:</strong> Normalized MySQL schema with relational tables and secure PDO queries.</li>
+                      <li><strong>Authentication:</strong> User registration, login, session protection, and access permissions.</li>
+                      <li><strong>Project Options:</strong> Personal blog with admin CMS, task manager, review portal, or community forum.</li>
+                    </ul>
+                  </div>
+                  <div class="checkpoint-callout">
+                    <span class="callout-tag">Milestone Checkpoint #3</span>
+                    <p class="callout-desc">Complete Portfolio Piece #1 deployed and presented as a functioning production application.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 7: PHASE 7 ================= -->
+    <section class="slide-pane" id="slide-7" data-slide-index="7">
+      <div class="slide-scroll">
+        <div class="slide-content">
+          
+          <div class="slide-header">
+            <span class="section-kicker">Phase 07 • 3 Weeks</span>
+            <h2 class="slide-title">APIs, AJAX & Security Best Practices</h2>
+            <p class="slide-lead">Build and consume REST APIs, implement asynchronous page updates, and harden applications against vulnerabilities.</p>
+          </div>
+
+          <div class="modules-container">
+            <!-- Module 11 -->
+            <div class="module-block expanded" id="mod-card-11">
+              <div class="module-row" onclick="toggleModule(11)">
+                <div class="module-left">
+                  <label class="clean-checkbox" onclick="event.stopPropagation()">
+                    <input type="checkbox" id="check-mod-11" onchange="handleModuleToggle(11)">
+                    <span class="checkbox-box"></span>
+                  </label>
+                  <div>
+                    <div class="module-number">Module 11 • 2 weeks / 6 classes</div>
+                    <h3 class="module-name">APIs, JSON & AJAX</h3>
+                  </div>
+                </div>
+                <div class="module-right">
+                  <span class="expand-icon"></span>
+                </div>
+              </div>
+
+              <div class="module-drawer">
+                <div class="drawer-content">
+                  <div class="topics-group">
+                    <h4 class="group-title">Topics Covered</h4>
+                    <ul class="clean-list">
+                      <li>Building RESTful API endpoints in PHP that return structured JSON data</li>
+                      <li>Consuming custom backend endpoints from JavaScript using the <code>fetch()</code> API</li>
+                      <li>AJAX workflows: updating UI elements asynchronously without full page refreshes</li>
+                    </ul>
+                  </div>
+                  <div class="project-callout">
+                    <span class="callout-tag">Mini-Project</span>
+                    <h4 class="callout-title">AJAX Dynamic Interactivity</h4>
+                    <p class="callout-desc">Upgrading Capstone 1 with live search or instant comment submissions without page reload.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Module 12 -->
+            <div class="module-block expanded" id="mod-card-12">
+              <div class="module-row" onclick="toggleModule(12)">
+                <div class="module-left">
+                  <label class="clean-checkbox" onclick="event.stopPropagation()">
+                    <input type="checkbox" id="check-mod-12" onchange="handleModuleToggle(12)">
+                    <span class="checkbox-box"></span>
+                  </label>
+                  <div>
+                    <div class="module-number">Module 12 • 1 week / 3 classes</div>
+                    <h3 class="module-name">Security & Professional Best Practices</h3>
+                  </div>
+                </div>
+                <div class="module-right">
+                  <span class="checkpoint-pill">Checkpoint 4</span>
+                  <span class="expand-icon"></span>
+                </div>
+              </div>
+
+              <div class="module-drawer">
+                <div class="drawer-content">
+                  <div class="topics-group">
+                    <h4 class="group-title">Topics Covered</h4>
+                    <ul class="clean-list">
+                      <li>Common web vulnerabilities: SQL Injection, XSS (Cross-Site Scripting), CSRF</li>
+                      <li>Sanitization, output escaping, and defensive programming</li>
+                      <li>HTTPS, environment variables, keeping API keys and credentials out of version control</li>
+                      <li>Clean code conventions, naming clarity, and modular code documentation</li>
+                    </ul>
+                  </div>
+                  <div class="checkpoint-callout">
+                    <span class="callout-tag">Milestone Checkpoint #4</span>
+                    <p class="callout-desc">Perform a comprehensive security audit of your Capstone 1 project to discover and remediate vulnerabilities.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 8: PHASE 8 ================= -->
+    <section class="slide-pane" id="slide-8" data-slide-index="8">
+      <div class="slide-scroll">
+        <div class="slide-content">
+          
+          <div class="slide-header">
+            <span class="section-kicker">Phase 08 • 4 Weeks</span>
+            <h2 class="slide-title">Modern Front-End: Intro to React</h2>
+            <p class="slide-lead">Transition to component-driven UI architecture with React, hooks, state management, and API integration.</p>
+          </div>
+
+          <div class="modules-container">
+            <!-- Module 13 -->
+            <div class="module-block expanded" id="mod-card-13">
+              <div class="module-row" onclick="toggleModule(13)">
+                <div class="module-left">
+                  <label class="clean-checkbox" onclick="event.stopPropagation()">
+                    <input type="checkbox" id="check-mod-13" onchange="handleModuleToggle(13)">
+                    <span class="checkbox-box"></span>
+                  </label>
+                  <div>
+                    <div class="module-number">Module 13 • 4 weeks / 12 classes</div>
+                    <h3 class="module-name">Introduction to React</h3>
+                  </div>
+                </div>
+                <div class="module-right">
+                  <span class="expand-icon"></span>
+                </div>
+              </div>
+
+              <div class="module-drawer">
+                <div class="drawer-content">
+                  <div class="topics-group">
+                    <h4 class="group-title">Topics Covered</h4>
+                    <ul class="clean-list">
+                      <li>Modern UI frameworks rationale and component-based design thinking</li>
+                      <li>JSX syntax, functional components, props, and hierarchical composition</li>
+                      <li>State management with <code>useState</code> and lifecycle/side effects with <code>useEffect</code></li>
+                      <li>Building a multi-component interactive application</li>
+                      <li>Connecting a React front-end to your PHP REST API</li>
+                    </ul>
+                  </div>
+                  <div class="project-callout">
+                    <span class="callout-tag">Mini-Project</span>
+                    <h4 class="callout-title">React UI + PHP Backend Integration</h4>
+                    <p class="callout-desc">Rebuilding an application front-end in React powered directly by your custom PHP backend API.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 9: PHASE 9 ================= -->
+    <section class="slide-pane" id="slide-9" data-slide-index="9">
+      <div class="slide-scroll">
+        <div class="slide-content">
+          
+          <div class="slide-header">
+            <span class="section-kicker">Phase 09 • 4 Weeks • Final Capstone</span>
+            <h2 class="slide-title">Deployment & Pro-Level Capstone</h2>
+            <p class="slide-lead">Production engineering, live hosting configuration, and presenting your final full-stack application on Demo Day.</p>
+          </div>
+
+          <div class="modules-container">
+            <!-- Module 14 -->
+            <div class="module-block expanded" id="mod-card-14">
+              <div class="module-row" onclick="toggleModule(14)">
+                <div class="module-left">
+                  <label class="clean-checkbox" onclick="event.stopPropagation()">
+                    <input type="checkbox" id="check-mod-14" onchange="handleModuleToggle(14)">
+                    <span class="checkbox-box"></span>
+                  </label>
+                  <div>
+                    <div class="module-number">Module 14 • 1 week / 3 classes</div>
+                    <h3 class="module-name">Deployment & Going Live</h3>
+                  </div>
+                </div>
+                <div class="module-right">
+                  <span class="expand-icon"></span>
+                </div>
+              </div>
+
+              <div class="module-drawer">
+                <div class="drawer-content">
+                  <div class="topics-group">
+                    <h4 class="group-title">Topics Covered</h4>
+                    <ul class="clean-list">
+                      <li>Domain names, DNS, and cloud hosting architecture</li>
+                      <li>Deploying a live PHP/MySQL application to production servers</li>
+                      <li>Environment configuration (<code>.env</code>) and production database separation</li>
+                      <li>Performance checks: asset compression, HTTP caching, and load time audits</li>
+                    </ul>
+                  </div>
+                  <div class="project-callout">
+                    <span class="callout-tag">Mini-Project</span>
+                    <h4 class="callout-title">Production Server Setup</h4>
+                    <p class="callout-desc">Configuring a cloud server environment with SSL certificates, MySQL instance, and live domain access.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Module 15 -->
+            <div class="module-block expanded" id="mod-card-15">
+              <div class="module-row" onclick="toggleModule(15)">
+                <div class="module-left">
+                  <label class="clean-checkbox" onclick="event.stopPropagation()">
+                    <input type="checkbox" id="check-mod-15" onchange="handleModuleToggle(15)">
+                    <span class="checkbox-box"></span>
+                  </label>
+                  <div>
+                    <div class="module-number">Module 15 • 3 weeks / 9 classes</div>
+                    <h3 class="module-name">Capstone 2: Pro-Level Full-Stack App & Demo Day</h3>
+                  </div>
+                </div>
+                <div class="module-right">
+                  <span class="checkpoint-pill highlight-pill">Checkpoint 5 / Finale</span>
+                  <span class="expand-icon"></span>
+                </div>
+              </div>
+
+              <div class="module-drawer">
+                <div class="drawer-content">
+                  <div class="topics-group">
+                    <h4 class="group-title">Final Capstone Requirements</h4>
+                    <ul class="clean-list">
+                      <li><strong>Front-End:</strong> Responsive HTML/CSS/JS or full React single-page application.</li>
+                      <li><strong>API & Backend:</strong> Well-structured PHP REST API with clean modular routing.</li>
+                      <li><strong>Database:</strong> Normalized MySQL schema with multiple relational tables.</li>
+                      <li><strong>Security:</strong> Full authentication, CSRF/XSS defense, prepared statements, and role-based permissions.</li>
+                      <li><strong>Deployment:</strong> Hosted live on the public web with custom domain configuration.</li>
+                      <li><strong>Demo Day:</strong> Student presents and walks through their own architecture and codebase.</li>
+                    </ul>
+                  </div>
+                  <div class="checkpoint-callout">
+                    <span class="callout-tag">Milestone Checkpoint #5</span>
+                    <p class="callout-desc">Demo Day presentation of your live full-stack web application.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 10: OUTCOME ================= -->
+    <section class="slide-pane" id="slide-10" data-slide-index="10">
+      <div class="slide-scroll">
+        <div class="slide-content">
+          
+          <div class="slide-header">
+            <span class="section-kicker">Program Completion</span>
+            <h2 class="slide-title">Graduate to Full-Stack Developer</h2>
+            <p class="slide-lead">
+              By the end of this 9-month curriculum, you will possess the ability to independently conceive, design, build, and deploy secure full-stack web applications.
+            </p>
+          </div>
+
+          <div class="summary-box">
+            <h3 class="summary-title">Demonstrated Capabilities</h3>
+            <div class="summary-grid">
+              <div class="summary-card">
+                <h4>Frontend Engineering</h4>
+                <p>Semantic HTML5, advanced CSS Grid/Flexbox, responsive layouts, vanilla JavaScript DOM manipulation, and React component state.</p>
+              </div>
+              <div class="summary-card">
+                <h4>Backend Architecture</h4>
+                <p>Client-server HTTP model, modular PHP backend logic, RESTful JSON APIs, session state, and security hardening.</p>
+              </div>
+              <div class="summary-card">
+                <h4>Database Systems</h4>
+                <p>Relational schema design, SQL CRUD operations, multi-table JOINs, and secure PDO prepared statements.</p>
+              </div>
+              <div class="summary-card">
+                <h4>DevOps & Tooling</h4>
+                <p>Git branching workflows, command-line proficiency, environment variables, domain configuration, and cloud deployment.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="next-steps-section">
+            <h4 class="next-steps-title">Recommended Subsequent Paths</h4>
+            <div class="next-steps-row">
+              <div class="next-step-pill">Node.js & Express</div>
+              <div class="next-step-pill">TypeScript</div>
+              <div class="next-step-pill">React Native (Mobile Apps)</div>
+              <div class="next-step-pill">Next.js & Cloud Functions</div>
+            </div>
+          </div>
+
+          <div class="slide-footer-cta">
+            <button class="btn-action" onclick="goToSlide(1)">Start with Module 0: Workflow →</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Slide Deck Controller -->
+  <footer class="bottom-controller">
+    <div class="controller-container">
+      <button id="prev-slide-btn" class="ctrl-btn" onclick="prevSlide()" title="Previous Slide (Left Arrow)">
+        ← Previous
+      </button>
+
+      <div class="controller-center">
+        <div class="dot-indicators" id="deck-dots-container"></div>
+        <span class="slide-counter" id="deck-counter-text">01 / 11</span>
+      </div>
+
+      <button id="next-slide-btn" class="ctrl-btn ctrl-btn-primary" onclick="nextSlide()" title="Next Slide (Right Arrow or Space)">
+        Next →
+      </button>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
